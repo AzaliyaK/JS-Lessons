@@ -5,3 +5,17 @@ git log --pretty=oneline --since='5 minutes ago'
 git log --pretty=oneline --until='5 minutes ago'
 git log --pretty=oneline --author=<your name>
 git log --pretty=oneline --all
+//для просмотра изменений, сделанных за последнюю неделю.
+// Я добавлю --author=alex, если я хочу увидеть только изменения, которые сделал я.
+git log --all --pretty=format:"%h %cd %s (%an)" --since='7 days ago' --author=alex
+
+Давайте рассмотрим его в деталях:
+
+--pretty="..." — определяет формат вывода.
+%h — укороченный хэш коммита
+%d — дополнения коммита («головы» веток или теги)
+%ad — дата коммита
+%s — комментарий
+%an — имя автора
+--graph — отображает дерево коммитов в виде ASCII-графика
+--date=short — сохраняет формат даты коротким и симпатичным
