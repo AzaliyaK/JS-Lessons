@@ -1,0 +1,32 @@
+//// …or create a new repository on the command line
+// echo "# JS-Lessons" >> README.md
+// git init
+// git add README.md
+// git commit -m "first commit"
+// git branch -M main
+// git remote add origin https://github.com/AzaliyaK/JS-Lessons.git
+// git push -u origin main
+//// …or push an existing repository from the command line
+// git remote add origin https://github.com/AzaliyaK/JS-Lessons.git
+// git branch -M main
+// git push -u origin main
+//// …or import code from another repository
+// You can initialize this reposi
+
+// Список необходимых плагинов:
+// All Autocomplete
+// Auto Close Tag
+// Auto Complete Tag
+// Auto Rename Tag
+// Beautify
+// Code Runner
+// Import Cost
+// JavaScript (ES6) code snippets
+// jshint
+// Live Server
+// Multiple clipboards for VSCode
+// Reactjs code snippets
+// Sass
+// Theme - Oceanic Next
+// vscode-icons
+// ESLint
