@@ -22,10 +22,10 @@ if (numberOfBooks != null && numberOfBooks != "") {
 
   let i = 0;
   while (i < 2) {
-    const a = prompt("Как называется прочитанная книга?", "");
+    let a = prompt("Как называется прочитанная книга?", "");
     if (a != null && a != "") {
       if (a.length > 9) {
-        a = a.substr(1, 10);
+        a = a.slice(1, 10);
       }
     } else {
       continue;
@@ -39,7 +39,6 @@ if (numberOfBooks != null && numberOfBooks != "") {
       continue;
     }
   }
-
   console.log(personalMovieDB);
 } else {
   alert("Жаль, что вы не любите читать");
