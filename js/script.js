@@ -3,21 +3,45 @@
 // const user = "Азалия";
 // alert(`${user}, у тебя все получится!`);
 
-const numberOfBooks = +prompt("Сколько книг ты прочитал?", "");
-const personalMovieDB = {
-  count: numberOfBooks,
-  movies: {},
-  actors: {},
-  genres: [],
-  privat: false,
-};
+const numberOfBooks = prompt("Сколько книг ты прочитал?", "");
+if (numberOfBooks != null && numberOfBooks != "") {
+  const personalMovieDB = {
+    count: +numberOfBooks,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+  };
+  if (personalMovieDB.count < 10) {
+    console.log("Маловато читаешь, дружище!(((");
+  } else if (personalMovieDB.count < 30) {
+    console.log("Ты классический читатель.");
+  } else if (personalMovieDB.count > 30) {
+    console.log("Ты книголюб!)))");
+  }
 
-const a = prompt("Как называется 1 прочитанная книга?", ""),
-  b = +prompt("На сколько (1...10) тебе понравилась?", ""),
-  c = prompt("Как называется 2 прочитанная книга?", ""),
-  d = +prompt("На сколько (1...10) тебе понравилась?", "");
+  let i = 0;
+  while (i < 2) {
+    const a = prompt("Как называется прочитанная книга?", "");
+    if (a != null && a != "") {
+      if (a.length > 9) {
+        a = a.substr(1, 10);
+      }
+    } else {
+      continue;
+    }
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+    const b = prompt("На сколько (1...10) тебе понравилась?", "");
+    if (b != null && b != "") {
+      personalMovieDB.movies[a] = b;
+      i++;
+    } else {
+      continue;
+    }
+  }
 
-console.log(personalMovieDB);
+  console.log(personalMovieDB);
+} else {
+  alert("Жаль, что вы не любите читать");
+  console.log("Книги - это Мир!");
+}
