@@ -25,7 +25,8 @@ if (numberOfBooks != null && numberOfBooks != "") {
     let a = prompt("Как называется прочитанная книга?", "");
     if (a != null && a != "") {
       if (a.length > 9) {
-        a = a.slice(1, 10);
+        //   a = a.slice(1, 10);
+        a = a.substring(1, 10);
       }
     } else {
       continue;
