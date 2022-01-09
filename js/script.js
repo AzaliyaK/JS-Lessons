@@ -1,76 +1,92 @@
 "use strict";
-
-// const options = {
-//   name: "test",
-//   width: 1024,
-//   height: 1024,
-//   color: {
-//     border: "black",
-//     bg: "red",
-//   },
-//   makeTest: function () {
-//     console.log("Func in Obj");
-//   },
-// };
-// options.makeTest();
-// // деструктуризация
-// const { border, bg } = options.color;
-// console.log(border);
-// console.log(bg);
-
-// // console.log(Object.keys(options));
-// // console.log(Object.keys(options).length);
-// // console.log(options.name);
-
-// // delete options.name;
-
-// // console.log(options);
-
-// // for (let key in options) {
-// //   if (typeof options[key] === "object") {
-// //     for (let i in options[key]) {
-// //       console.log(`свойство ${i} = ${options[key][i]}`);
-// //     }
-// //   } else {
-// //     console.log(`свойство ${key} = ${options[key]}`);
-// //   }
-// // }
-
-// // массивы
-// const arr = [2, 4, 8, 16, 32];
-// arr.pop();
-// arr.push(64);
-// console.log(arr);
-
-// // console.log('in перебирает индексы');
-// // for (let val in arr) {
-// //   console.log(val);
-// // }
-// // 0,1,2,3,4
-
-// // console.log('of перебирает элементы');
-// // for (let val of arr) {
-// //   console.log(val);
-// // }S
-// // 2,4,8,16,32
-
-// const arr1 = [2, 4, 8, 16, 32];
-// // перебор элементов
-// arr1.forEach(function (val, idx, arr1) {
-//   console.log(`${idx}: ${val} in array ${arr1}`);
-// });
-
-// // модификация и возврат нового массива
-// // map, every/some, filter, redice
-
-// splitaaaa, sssss,
-const str = prompt("", "");
-const products = str.split(", ");
-console.log(products);
-products.sort(); // sort сортирует как строки
-products.sort(compareNum); // sort сортирует как строки
-console.log(products.join(" - "));
-
-function compareNum(a, b) {
-  return a - b;
+//  поверхностная копия объекта
+function copy(mainObj) {
+  let objCopy = {};
+  let key;
+  for (key in mainObj) {
+    objCopy[key] = mainObj[key];
+  }
+  return objCopy;
 }
+
+let numbers = {
+  a: 2,
+  b: 3,
+  c: {
+    x: 4,
+    y: 5,
+  },
+};
+
+newNum = copy(numbers);
+newNum.a = 10;
+newNum.c.d = 10;
+console.log(newNum);
+console.log(numbers);
+// Result:
+// { a: 10, b: 3, c: { x: 4, y: 5, d: 10 } }
+// { a: 2, b: 3, c: { x: 4, y: 5, d: 10 } }
+
+const add = {
+  d: 17,
+  e: 18,
+};
+
+console.log(Object.assign(numbers, add));
+// Result:
+// { a: 2, b: 3, c: { x: 4, y: 5, d: 10 }, d: 17, e: 18 }
+const add1 = Object.assign({}, add);
+add1.d = 16;
+console.log(add1);
+console.log(numbers);
+// { d: 16, e: 18 }
+// { a: 2, b: 3, c: { x: 4, y: 5, d: 10 }, d: 17, e: 18 }
+
+const oldArray = ["a", "b", "c"];
+const newArray = oldArray.slice();
+newArray[1] = "zzz";
+console.log(oldArray);
+console.log(newArray);
+// Res
+// [ 'a', 'b', 'c' ]
+// [ 'a', 'zzz', 'c' ]
+
+// spred - разворот для массивов и объектов
+const a = ["a1", "a2", "a3"],
+  b = ["b1", "b2", "b3"],
+  c = [...a, ...b, "c1", "c2"];
+console.log(c);
+//  результат
+// [
+//   'a1', 'a2', 'a3',
+//   'b1', 'b2', 'b3',
+//   'c1', 'c2'
+// ]
+
+function log(a, b, c) {
+  console.log(a);
+  console.log(b);
+  console.log(c);
+}
+
+const num = [2, 3, 7];
+log(...num);
+// 2
+// 3
+// 7
+
+// создание копии массива
+const array = ["fg", "ff"];
+const newArray = [...array];
+console.log(newArray);
+//res: [ 'fg', 'ff' ]
+
+// Создание копии объекта
+const q = {
+  one: 1,
+  two: 2,
+};
+const newQ = { ...q };
+console.log(newQ);
+// Result
+// { one: 1, two: 2 }
