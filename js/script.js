@@ -1,94 +1,76 @@
 "use strict";
 
-// const user = "Азалия";
-// alert(`${user}, у тебя все получится!`);
+// const options = {
+//   name: "test",
+//   width: 1024,
+//   height: 1024,
+//   color: {
+//     border: "black",
+//     bg: "red",
+//   },
+//   makeTest: function () {
+//     console.log("Func in Obj");
+//   },
+// };
+// options.makeTest();
+// // деструктуризация
+// const { border, bg } = options.color;
+// console.log(border);
+// console.log(bg);
 
-let numberOfBooks;
-start();
-const personalMovieDB = {
-  count: +numberOfBooks,
-  movies: {},
-  actors: {},
-  genres: [],
-  privat: false,
-};
+// // console.log(Object.keys(options));
+// // console.log(Object.keys(options).length);
+// // console.log(options.name);
 
-if (numberOfBooks != 0) {
-  // detectPersonalLevel();
-  // rememberMyBooks();
-  writeYourGenres();
-  showMyDB(personalMovieDB.privat);
-} else {
-  alert("Жаль, что вы не любите читать");
-  console.log("Книги - это Мир!");
-}
+// // delete options.name;
 
-function start() {
-  numberOfBooks = prompt("Сколько книг ты прочитал?", "");
-  while (numberOfBooks == "" || isNaN(numberOfBooks) || numberOfBooks == null) {
-    numberOfBooks = prompt("Сколько книг ты прочитал?", "");
-  }
-}
+// // console.log(options);
 
-function rememberMyBooks() {
-  let i = 0;
-  while (i < 2) {
-    let a = prompt("Как называется прочитанная книга?", "");
-    if (a != null && a != "") {
-      if (a.length > 9) {
-        //   a = a.slice(1, 10);
-        a = a.substring(1, 10); // 10 - index
-        a = a.substr(1, 10); // 10 - long
-      }
-    } else {
-      continue;
-    }
+// // for (let key in options) {
+// //   if (typeof options[key] === "object") {
+// //     for (let i in options[key]) {
+// //       console.log(`свойство ${i} = ${options[key][i]}`);
+// //     }
+// //   } else {
+// //     console.log(`свойство ${key} = ${options[key]}`);
+// //   }
+// // }
 
-    const b = prompt("На сколько (1...10) тебе понравилась?", "");
-    if (b != null && b != "") {
-      personalMovieDB.movies[a] = b;
-      i++;
-    } else {
-      continue;
-    }
-  }
-}
+// // массивы
+// const arr = [2, 4, 8, 16, 32];
+// arr.pop();
+// arr.push(64);
+// console.log(arr);
 
-function detectPersonalLevel() {
-  if (personalMovieDB.count < 10) {
-    console.log("Маловато читаешь, дружище!(((");
-  } else if (personalMovieDB.count < 30) {
-    console.log("Ты классический читатель.");
-  } else if (personalMovieDB.count > 30) {
-    console.log("Ты книголюб!)))");
-  }
-}
+// // console.log('in перебирает индексы');
+// // for (let val in arr) {
+// //   console.log(val);
+// // }
+// // 0,1,2,3,4
 
-function showMyDB(hidden) {
-  if (!hidden) {
-    console.log(personalMovieDB);
-  }
-}
+// // console.log('of перебирает элементы');
+// // for (let val of arr) {
+// //   console.log(val);
+// // }S
+// // 2,4,8,16,32
 
-function writeYourGenresAza() {
-  let genrNum = 0;
-  let genre;
-  while (genrNum < 3) {
-    genre = prompt(`Ваш любимый жанр под номером ${genrNum + 1} ?`);
-    if (genre == "" || genre == null) {
-      continue;
-    } else {
-      personalMovieDB.genres[genrNum] = genre;
-      genrNum++;
-    }
-  }
-}
+// const arr1 = [2, 4, 8, 16, 32];
+// // перебор элементов
+// arr1.forEach(function (val, idx, arr1) {
+//   console.log(`${idx}: ${val} in array ${arr1}`);
+// });
 
-function writeYourGenres() {
-  // нет проверки введенных данных
-  for (let i = 1; i < 4; i++) {
-    personalMovieDB.genres[i - 1] = prompt(
-      `Ваш любимый жанр под номером ${i} ?`
-    );
-  }
+// // модификация и возврат нового массива
+// // map, every/some, filter, redice
+
+// splitaaaa, sssss,
+const str = prompt("", "");
+const products = str.split(", ");
+console.log(products);
+products.sort(); // sort сортирует как строки
+products.sort(compareNum); // sort сортирует как строки
+console.log(products.join(" - "));
+
+function compareNum(a, b) {
+  return a - b;
 }
